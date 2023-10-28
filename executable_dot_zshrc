@@ -6,12 +6,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ## Useful aliases
-# Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+# Replace ls with lsd
+alias ls='lsd --group-directories-first' # preferred listing
+alias la='lsd -a --group-directories-first' # all files and dirs
+alias ll='lsd -l --group-directories-first' # long format
+alias l.="lsd -a --group-directories-first | egrep '^\.'" # show only dotfiles
 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style snip --style changes --style header'
@@ -30,7 +29,7 @@ alias get='paru -Syu'
 # Set default text editor
 export EDITOR=nvim
 
-export XDG_DATA_DIRS="/usr/local/share:/var/usrlocal/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
+export XDG_DATA_DIRS="/usr/local/share:/var/usrlocal/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$HOME/.nix-profile/share:$HOME/.share"
 
 export QT_STYLE_OVERRIDE=kvantum
 
@@ -46,6 +45,9 @@ export IDF_PATH="$HOME/esp-idf"
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
+
+export CALIBRE_USE_SYSTEM_THEME=1
+export QT_QPA_PLATFORM=wayland
 
 # Fix high-resolution scrolling in Firefox (only works under X11)
 export MOZ_USE_XINPUT2=1
@@ -126,7 +128,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git adb cp dnf ubuntu python sudo thefuck zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(git adb cp dnf ubuntu python sudo nix-zsh-completions thefuck zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
