@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/bensimmons/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/bensimmons/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/bensimmons/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/bensimmons/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/bensimmons/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/var/home/bensimmons/.cache/nvim/packer_hererocks/2.1.1697887905/share/lua/5.1/?.lua;/var/home/bensimmons/.cache/nvim/packer_hererocks/2.1.1697887905/share/lua/5.1/?/init.lua;/var/home/bensimmons/.cache/nvim/packer_hererocks/2.1.1697887905/lib/luarocks/rocks-5.1/?.lua;/var/home/bensimmons/.cache/nvim/packer_hererocks/2.1.1697887905/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/var/home/bensimmons/.cache/nvim/packer_hererocks/2.1.1697887905/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,165 +74,170 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ale = {
+    loaded = true,
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/ale",
+    url = "https://github.com/dense-analysis/ale"
+  },
   badwolf = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/badwolf",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/badwolf",
     url = "https://github.com/sjl/badwolf"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-cmdline"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-path",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   fzf = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/fzf",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf.vim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
   ["haskell-vim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/haskell-vim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/haskell-vim",
     url = "https://github.com/neovimhaskell/haskell-vim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
     url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   neoformat = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/neoformat",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/neoformat",
     url = "https://github.com/sbdchd/neoformat"
   },
   ["nim.nvim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/nim.nvim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/nim.nvim",
     url = "https://github.com/alaviss/nim.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   rainbow = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/rainbow",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/rainbow",
     url = "https://github.com/luochen1990/rainbow"
   },
   ["rust.vim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/rust.vim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
   },
   ["vim-better-whitespace"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-better-whitespace",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-better-whitespace",
     url = "https://github.com/ntpeters/vim-better-whitespace"
   },
   ["vim-colors-pencil"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-colors-pencil",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-colors-pencil",
     url = "https://github.com/preservim/vim-colors-pencil"
   },
   ["vim-colortuner"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-colortuner",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-colortuner",
     url = "https://github.com/zefei/vim-colortuner"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-dispatch"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-dispatch",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-dispatch",
     url = "https://github.com/tpope/vim-dispatch"
   },
   ["vim-easymotion"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-easymotion",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-easymotion",
     url = "https://github.com/easymotion/vim-easymotion"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-gas"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-gas",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-gas",
     url = "https://github.com/Shirk/vim-gas"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-surround",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
   vimux = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/vimux",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/vimux",
     url = "https://github.com/preservim/vimux"
   },
   ["wgsl.vim"] = {
     loaded = true,
-    path = "/home/bensimmons/.local/share/nvim/site/pack/packer/start/wgsl.vim",
+    path = "/var/home/bensimmons/.local/share/nvim/site/pack/packer/start/wgsl.vim",
     url = "https://github.com/DingDean/wgsl.vim"
   }
 }

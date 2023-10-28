@@ -29,3 +29,11 @@ require('nvim-treesitter.configs').setup {
 }
 
 require('nvim-autopairs').setup {}
+
+vim.cmd
+[[
+    augroup change_cursor
+        au!
+        au ExitPre * :set guicursor=a:ver90blinkon1
+    augroup END
+]]
