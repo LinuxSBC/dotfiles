@@ -74,6 +74,8 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  "arrufat/vala.vim",
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -234,10 +236,19 @@ require('lazy').setup({
 -- [[ Reset I-beam cursor when closing ]]
 vim.cmd
 [[
-    augroup change_cursor
-        au!
-        au ExitPre * :set guicursor=a:ver90blinkon1
-    augroup END
+  augroup change_cursor
+    au!
+    au ExitPre * :set guicursor=a:ver90blinkon1
+  augroup END
+]]
+
+-- [[ 4 tabs for indentation ]]
+vim.cmd
+[[
+  filetype plugin indent on
+  set tabstop=4
+  set shiftwidth=4
+  set expandtab
 ]]
 
 -- [[ Setting options ]]
@@ -289,6 +300,8 @@ vim.o.cursorcolumn = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+--vim.keymap.set({ 'n', 'v' }, '<Home>', '^', { silent = true })
+--vim.keymap.set('i', '<Esc>^i', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

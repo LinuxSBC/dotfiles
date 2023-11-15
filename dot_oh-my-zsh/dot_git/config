@@ -20,5 +20,5 @@
 [receive "fsck"]
 	zeroPaddedFilemode = ignore
 [oh-my-zsh]
-	lastVersion = 079dbff2c4f22935a71101c511e2285327d8ab68
+	lastVersion = 8428442ff0e0114fab32b90443911b11a4b7f5df
 	remote = origin

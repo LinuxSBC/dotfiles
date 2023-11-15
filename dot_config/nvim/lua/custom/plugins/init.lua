@@ -3,4 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 require "custom.plugins.lastplace"
-return {}
+return {
+    {
+        "arrufat/vala.vim",
+    },
+}
