@@ -26,6 +26,9 @@ alias egrep='egrep --color=auto'
 
 alias get='paru -Syu'
 
+alias ip='ip -c'
+alias addr='ip -br -c a'
+
 # Set default text editor
 export EDITOR=nvim
 
@@ -34,7 +37,7 @@ export XDG_DATA_DIRS="/usr/local/share:/var/usrlocal/share:/usr/share:/var/lib/f
 export QT_STYLE_OVERRIDE=kvantum
 
 function export-bin () {
-    distrobox-export --bin `which $1` --export-path $HOME/.local/bin
+    distrobox-export --bin `whence -p $1` --export-path $HOME/.local/bin
 }
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/esp-idf/components/esptool_py/esptool:$HOME/esp-idf/components/espcoredump:$HOME/esp-idf/components/partition_table:$HOME/esp-idf/components/app_update:$HOME/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin:$HOME/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:$HOME/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210902/openocd-esp32/bin:$HOME/.espressif/python_env/idf4.4_py3.9_env/bin:/opt/android-sdk/platform-tools:/var/opt/android-sdk/platform-tools:/var/lib/snapd/snap/bin:$HOME/.cargo/bin:$HOME/.local/share/JetBrains/Toolbox/scripts"
