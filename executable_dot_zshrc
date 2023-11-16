@@ -188,11 +188,9 @@ alias phasmophobia='cd ~/.phasmophobia && /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.
 alias modded='~/.modded-with-friends/start.sh'
 #alias modded='cd ~/.modded-with-seams && java -Xmx4G -jar fabric-server-mc.1.18.2-loader.0.14.10-launcher.0.11.1.jar nogui'
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-#eval "$(starship init zsh)"
+eval "$(atuin init zsh)" # Atuin, a better shell history alternative
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
