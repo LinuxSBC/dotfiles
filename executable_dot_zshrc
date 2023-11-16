@@ -131,7 +131,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git adb cp dnf ubuntu python sudo nix-zsh-completions thefuck zsh-vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git adb cp dnf ubuntu python sudo nix-zsh-completions thefuck zsh-autosuggestions zsh-syntax-highlighting)
 # Bind keys for zsh-history-substring-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
@@ -192,7 +192,7 @@ alias modded='~/.modded-with-friends/start.sh'
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-eval "$(atuin init zsh)" # Atuin, a better shell history alternative
+eval "$(atuin init zsh --disable-up-arrow)" # Atuin, a better shell history alternative
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
