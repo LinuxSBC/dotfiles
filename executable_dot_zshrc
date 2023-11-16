@@ -136,8 +136,6 @@ plugins=(git adb cp dnf ubuntu python sudo nix-zsh-completions thefuck zsh-autos
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
-bindkey '^r' _atuin_search_widget
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
