@@ -14,9 +14,9 @@ alias l.="lsd -a --group-directories-first | egrep '^\.'" # show only dotfiles
 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style snip --style changes --style header'
-#[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
+[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 #alias paru='paru --bottomup --sudoloop --skipreview --needed'
-alias yay=paru
+#alias yay=paru
 
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
