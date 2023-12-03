@@ -5,33 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-## Useful aliases
-# Replace ls with lsd
-alias ls='lsd --group-directories-first' # preferred listing
-alias la='lsd -a --group-directories-first' # all files and dirs
-alias ll='lsd -l --group-directories-first' # long format
-alias l.="lsd -a --group-directories-first | egrep '^\.'" # show only dotfiles
-
-# Replace some more things with better alternatives
-alias cat='bat --style header --style snip --style changes --style header'
-[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
-#alias paru='paru --bottomup --sudoloop --skipreview --needed'
-#alias yay=paru
-
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-alias get='paru -Syu'
-
-alias ip='ip -c'
-alias addr='ip -br -c a'
-
-# Set default text editor
-export EDITOR=nvim
-
 export XDG_DATA_DIRS="/usr/local/share:/var/usrlocal/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$HOME/.nix-profile/share:$HOME/.share"
 
 export QT_STYLE_OVERRIDE=kvantum
@@ -146,11 +119,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -163,6 +136,27 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Replace ls with lsd
+alias ls='lsd --group-directories-first' # preferred listing
+alias la='lsd -a --group-directories-first' # all files and dirs
+alias ll='lsd -l --group-directories-first' # long format
+alias l.="lsd -a --group-directories-first | egrep '^\.'" # show only dotfiles
+
+# Replace some more things with better alternatives
+alias cat='bat --style header --style snip --style changes --style header'
+[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
+#alias paru='paru --bottomup --sudoloop --skipreview --needed'
+#alias yay=paru
+
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ip='ip -c'
+alias addr='ip -br -c a'
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 #source /usr/share/nvm/init-nvm.sh
