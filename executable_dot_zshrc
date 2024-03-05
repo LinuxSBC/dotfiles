@@ -158,6 +158,8 @@ alias egrep='egrep --color=auto'
 alias ip='ip -c'
 alias addr='ip -br -c a'
 
+alias fd='fd -H'
+
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 #source /usr/share/nvm/init-nvm.sh
 
