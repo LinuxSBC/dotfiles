@@ -1,0 +1,18 @@
+[submodule ".config/zsh/.oh-my-zsh"]
+	path = .config/zsh/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule ".config/zsh/.omz-custom/plugins/zsh-autosuggestions"]
+	path = .config/zsh/.omz-custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".config/zsh/.omz-custom/plugins/zsh-history-substring-search"]
+	path = .config/zsh/.omz-custom/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule ".config/zsh/.omz-custom/plugins/zsh-syntax-highlighting"]
+	path = .config/zsh/.omz-custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".config/zsh/.omz-custom/plugins/zsh-vi-mode"]
+	path = .config/zsh/.omz-custom/plugins/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode.git
+[submodule ".config/zsh/.omz-custom/themes/powerlevel10k"]
+	path = .config/zsh/.omz-custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
