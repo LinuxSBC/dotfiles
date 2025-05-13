@@ -1744,6 +1744,9 @@
   # really need it.
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
+  # Adds OSC 133 support, allowing better reliability when resizing on supported terminals
+  typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
+
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
   (( ! $+functions[p10k] )) || p10k reload
