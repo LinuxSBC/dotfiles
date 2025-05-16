@@ -12,14 +12,6 @@ init_linuxbrew() {
     . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
 }
 
-init_perl() {
-    PATH="/var/home/bensimmons/perl5/bin${PATH:+:${PATH}}"; export PATH;
-    PERL5LIB="/var/home/bensimmons/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-    PERL_LOCAL_LIB_ROOT="/var/home/bensimmons/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-    PERL_MB_OPT="--install_base \"/var/home/bensimmons/perl5\""; export PERL_MB_OPT;
-    PERL_MM_OPT="INSTALL_BASE=/var/home/bensimmons/perl5"; export PERL_MM_OPT;
-}
-
 
 
 
@@ -126,10 +118,6 @@ function export-bin () {
 
 # Adding support for external programs
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
-
-init_perl
-
-[ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 

@@ -1,0 +1,30 @@
+[include]
+	path = ~/.gitconfig.local
+[credential]
+	helper = store
+[core]
+	editor = nvim
+	pager = delta
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[color]
+	ui = auto
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
+[commit]
+	gpgsign = true
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    ; dark = true      # or light = true, or omit for auto-detection
+    line-numbers = true
+[merge]
+    conflictstyle = zdiff3
+[init]
+	defaultBranch = main
