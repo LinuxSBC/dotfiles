@@ -2,8 +2,27 @@
 
 # Because Git submodule commands cannot operate without a work tree, they must
 # be run from within $HOME (assuming this is the root of your dotfiles)
-cd "$HOME"
+cd "$HOME" || exit
 
 echo "Init submodules"
 yadm submodule update --recursive --init
+
+# Update XDG directory names to my custom ones
+dir_create() { # $1: XDG dir, $2: default dir
+    mkdir -p "$1"
+    if [ "$1" != "$2" ] && [ -d "$2" ]; then
+        echo "Make sure to copy $2 to $1"
+    fi
+}
+echo "Update XDG directories"
+. "$XDG_CONFIG_HOME/user-dirs.dirs"
+dir_create "$XDG_DESKTOP_DIR" "$HOME/Desktop"
+dir_create "$XDG_DOWNLOAD_DIR" "$HOME/Downloads"
+dir_create "$XDG_TEMPLATES_DIR" "$HOME/Templates"
+dir_create "$XDG_PUBLICSHARE_DIR" "$HOME/Public"
+dir_create "$XDG_DOCUMENTS_DIR" "$HOME/Documents"
+dir_create "$XDG_MUSIC_DIR" "$HOME/Music"
+dir_create "$XDG_PICTURES_DIR" "$HOME/Pictures"
+dir_create "$XDG_VIDEOS_DIR" "$HOME/Videos"
+xdg-user-dirs-update
 
