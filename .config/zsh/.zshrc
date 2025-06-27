@@ -151,6 +151,8 @@ alias la='ls -a' # all files and dirs
 alias ll='ls -l' # long format
 alias l.="ls -a | egrep '^\.'" # show only dotfiles
 
+alias cd='z'
+
 alias cat='bat --style header --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 #alias paru='paru --bottomup --sudoloop --skipreview --needed'
@@ -171,7 +173,33 @@ alias phasmophobia='cd ~/.phasmophobia && /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.
 alias modded='~/.modded-with-friends/start.sh'
 #alias modded='cd ~/.modded-with-seams && java -Xmx4G -jar fabric-server-mc.1.18.2-loader.0.14.10-launcher.0.11.1.jar nogui'
 
-function export-bin () {
+function run-arch() {
+    # check if it's in distrobox
+    if [ -z "${DISTROBOX_ENTER_PATH}" ]; then
+        /usr/bin/distrobox-enter -n arch -- "$@"
+    else
+        "$@"
+    fi
+}
+
+function update-bazaar() {
+    $HOME/.local/bin/bazaar quit
+    current_dir=$(pwd)
+    cd $HOME/Code/bazaar || return 1
+    git pull
+    run-arch meson setup build -Dhardcoded_content_config_path=/etc/bazaar/config.yaml --prefix=~/.local
+    run-arch ninja -C build
+    run-arch sudo ninja -C build install
+    # set path in desktop entry to absolute path
+    local desktop_file="$HOME/.local/share/applications/io.github.kolunmi.bazaar.desktop"
+    if [ -f "$desktop_file" ]; then
+        sudo chmod 666 "$desktop_file"
+        sed -i "s|Exec=bazaar|Exec=$HOME/.local/bin/bazaar|" "$desktop_file"
+    fi
+    cd "$current_dir" || return 1
+}
+
+function export-bin() {
     distrobox-export --bin `whence -p $1` --export-path $HOME/.local/bin
 }
 
