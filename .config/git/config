@@ -1,5 +1,7 @@
 [include]
 	path = ~/.config/git/local-config
+[includeIf "gitdir:~/Code/iDoc/"]
+	path = ~/.config/git/idoc-config
 [credential]
 	helper = store
 [core]
@@ -28,3 +30,9 @@
     conflictstyle = zdiff3
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

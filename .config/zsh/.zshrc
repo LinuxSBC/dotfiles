@@ -86,7 +86,7 @@ export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/config
+# export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/config
 
 # PATH setting
 typeset -U path
@@ -123,16 +123,16 @@ export EDITOR='nvim'
 export ZSH="${ZDOTDIR:-$HOME}/.oh-my-zsh"
 export ZSH_CUSTOM="${ZDOTDIR:-$HOME}/.omz-custom"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555"
 ZVM_VI_HIGHLIGHT_BACKGROUND=#3B3F4C
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(python zsh-vi-mode zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
+plugins=(python zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
-bindkey -v
+# bindkey -v
 
 # Bind keys for zsh-history-substring-search
 bindkey '^[[A' up-line-or-beginning-search
@@ -191,7 +191,7 @@ function update-bazaar() {
     run-arch ninja -C build
     run-arch sudo ninja -C build install
     # set path in desktop entry to absolute path
-    local desktop_file="$HOME/.local/share/applications/io.github.kolunmi.bazaar.desktop"
+    local desktop_file="$HOME/.local/share/applications/io.github.kolunmi.Bazaar.desktop"
     if [ -f "$desktop_file" ]; then
         sudo chmod 666 "$desktop_file"
         sed -i "s|Exec=bazaar|Exec=$HOME/.local/bin/bazaar|" "$desktop_file"
