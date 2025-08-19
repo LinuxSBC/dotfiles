@@ -26,3 +26,6 @@ dir_create "$XDG_PICTURES_DIR" "$HOME/Pictures"
 dir_create "$XDG_VIDEOS_DIR" "$HOME/Videos"
 xdg-user-dirs-update
 
+echo "Enable systemd user services"
+systemctl --user daemon-reload
+systemctl --user enable --now downloads-temp.timer

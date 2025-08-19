@@ -2,6 +2,7 @@
 Description=Clear the contents of the ~/Downloads/Temporary directory on boot
 
 [Timer]
+# runs once on each login, when the systemd user session starts
 OnStartupSec=0
 Persistent=true
 
