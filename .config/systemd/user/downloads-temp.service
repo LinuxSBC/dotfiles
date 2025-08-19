@@ -1,0 +1,8 @@
+[Unit]
+Description=Clear the contents of the ~/Downloads/Temporary directory on login
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/bash -c 'test -n "$(xdg-user-dir DOWNLOAD)"'
+ExecStartPre=/usr/bin/mkdir -p "$(xdg-user-dir DOWNLOAD)/Temporary"
+ExecStart=/usr/bin/rm -rf -- "$(xdg-user-dir DOWNLOAD)/Temporary"/*

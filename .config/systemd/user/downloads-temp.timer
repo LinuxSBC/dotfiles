@@ -1,0 +1,9 @@
+[Unit]
+Description=Clear the contents of the ~/Downloads/Temporary directory on boot
+
+[Timer]
+OnStartupSec=0
+Persistent=true
+
+[Install]
+WantedBy=default.target
