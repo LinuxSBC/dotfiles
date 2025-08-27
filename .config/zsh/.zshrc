@@ -215,5 +215,11 @@ fi
 
 eval "$(zoxide init zsh)"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/Code/iDoc/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Code/iDoc/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/Code/iDoc/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Code/iDoc/google-cloud-sdk/completion.zsh.inc"; fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$XDG_CONFIG_HOME"/zsh/.p10k.zsh ]] || source "$XDG_CONFIG_HOME"/zsh/.p10k.zsh
