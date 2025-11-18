@@ -7,6 +7,7 @@
 [core]
 	editor = nvim
 	pager = delta
+	autocrlf = input
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

@@ -192,6 +192,13 @@ vim.api.nvim_create_autocmd({'BufWinEnter'}, {
   command = 'silent! normal! g`"zv',
 })
 
+-- Set barbar.nvim active buffer title color to fg rather than its current unset
+-- vim.api.nvim_set_hl(0, 'BufferCurrent', { fg = "$fg" }) -- fg isn't defined here, so do it in vimscript
+-- vim.cmd
+-- [[
+--   hi BufferCurrent guifg=fg
+-- ]]
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {

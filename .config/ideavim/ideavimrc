@@ -64,3 +64,4 @@ nnoremap <leader>x "_x
 nnoremap <leader>X "_X
 nnoremap <leader>c "_c
 nnoremap <leader>C "_C
+set ideajoin

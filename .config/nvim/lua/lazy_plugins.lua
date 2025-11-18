@@ -1,3 +1,26 @@
+local function get_wordcount()
+  local word_count = 0
+
+  if vim.fn.mode():find("[vV]") then
+    word_count = vim.fn.wordcount().visual_words
+  else
+    word_count = vim.fn.wordcount().words
+  end
+
+  return word_count
+end
+
+local function wordcount()
+  local label = "word"
+  local word_count = get_wordcount()
+
+  if word_count > 1 then
+    label = label .. "s"
+  end
+
+  return word_count .. " " .. label
+end
+
 return {
   -- NOTE: First, some plugins that don't require any configuration
 
@@ -359,7 +382,7 @@ return {
   },
 
   -- Icons for which-key
-  { 'echasnovski/mini.icons', version = false },
+  { 'nvim-mini/mini.icons', version = false },
   { 'nvim-tree/nvim-web-devicons' },
 
   -- Useful plugin to show you pending keybinds.
@@ -425,6 +448,29 @@ return {
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
+      require('onedark').setup {
+        -- style = 'darker',
+        -- transparent = true,
+        code_style = {
+          comments = 'italic',
+          keywords = 'none',
+          functions = 'bold',
+          strings = 'none',
+          variables = 'none',
+        },
+        -- diagnostics = {
+        --   darker = true,
+        --   undercurl = true,
+        --   background = true,
+        -- },
+        highlights = {
+          ["BufferCurrent"] = { fg = "$fg" },
+          ["@comment"] = { fg = "$dark_yellow" }, -- I quite like $dark_purple, but dark_yellow is more clear.
+          ["@lsp.type.comment"] = { fg = "$dark_yellow" },
+          ["Comment"] = { fg = "$dark_yellow" },
+        },
+      }
+      require('onedark').load()
       vim.cmd.colorscheme 'onedark'
     end,
   },
@@ -437,8 +483,24 @@ return {
       options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = '|',
+        component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
+      },
+      sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'copilot', 'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress', wordcount},
+        lualine_z = {'location'}
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
       },
     },
   },
@@ -524,16 +586,43 @@ return {
   },
 
   -- Github Copilot
+  -- {
+  --   "copilotlsp-nvim/copilot-lsp",
+  --   init = function()
+  --       vim.g.copilot_nes_debounce = 500
+  --       vim.lsp.enable("copilot_ls")
+  --   end,
+  -- },
   {
     "zbirenbaum/copilot.lua",
+    requires = {},
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
-        suggestion = { auto_trigger = true },
+        -- TODO: When stable, set this up with https://github.com/zbirenbaum/copilot.lua#nes-next-edit-suggestion
+        -- nes = {
+        --   enabled = true,
+        --   -- auto_trigger = false,
+        --   keymap = {
+        --     -- accept_and_goto = "<M-g>",
+        --     accept_and_goto = "<leader>p",
+        --     accept = false,
+        --     dismiss = "<Esc>",
+        --   },
+        -- },
+        suggestion = {
+          auto_trigger = true,
+          keymap = {
+            accept = "<M-l>",
+            accept_word = "<M-w>",
+            -- dismiss = "<Esc>",
+          },
+        }
       })
     end,
   },
+  { 'AndreM222/copilot-lualine' },
 
   -- Dim unused variables and functions
   {
@@ -559,17 +648,19 @@ return {
   end
   },
 
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   lazy = false,
   --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  --   -- For blink.cmp's completion
+  --   -- source
+  --   dependencies = {
+  --     "saghen/blink.cmp",
+  --     "nvim-mini/mini.icons"
+  --   },
+  --
+  --   preview = {
+  --     icon_provider = "mini", -- "internal" or "devicons"
+  --   }
+  -- },
 }
