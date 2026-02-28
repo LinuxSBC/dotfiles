@@ -174,6 +174,9 @@ vim.keymap.set('n', '<leader>X', '"_X', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>c', '"_c', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>C', '"_C', { noremap = true, silent = true })
 
+-- Remap so that pasting over visual selection doesn't yank replaced text
+vim.keymap.set("x", "p", [["_dP]])
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

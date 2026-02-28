@@ -57,6 +57,9 @@ set relativenumber
 "" Map <leader>rn to rename
 map <leader>rn <Action>(RenameElement)
 
+"" Don't yank on paste in visual mode
+xnoremap p "_dP
+
 "" Map <leader> plus delete keys to delete without copying
 nnoremap <leader>d "_d
 nnoremap <leader>D "_D

@@ -9,7 +9,7 @@
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 -- The list of available LSPs can be found here: https://github.com/neovim/nvim-lspconfig/tree/master/lsp
 return {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   pyright = {},
   rust_analyzer = {},
