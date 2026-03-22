@@ -154,9 +154,6 @@ alias l.="ls -a | egrep '^\.'" # show only dotfiles
 alias cd='z'
 
 alias cat='bat --style header --style snip --style changes --style header'
-[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
-#alias paru='paru --bottomup --sudoloop --skipreview --needed'
-#alias yay=paru
 
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -169,9 +166,15 @@ alias addr='ip -br -c a'
 
 alias fd="fd -H"
 
-alias phasmophobia='cd ~/.phasmophobia && /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.*/jre/bin/java -jar purpur-1.16.5-1171.jar'
-alias modded='~/.modded-with-friends/start.sh'
-#alias modded='cd ~/.modded-with-seams && java -Xmx4G -jar fabric-server-mc.1.18.2-loader.0.14.10-launcher.0.11.1.jar nogui'
+function hyfetch() {
+    cmd=$(whence -p hyfetch)
+    distro=$(cat /etc/os-release | grep '^ID=' | cut -d= -f2 | tr -d '"')
+    if [ "$distro" = "bluefin" ]; then
+        $cmd --distro fedora
+    else
+        $cmd
+    fi
+}
 
 function run-arch() {
     # check if it's in distrobox
@@ -180,23 +183,6 @@ function run-arch() {
     else
         "$@"
     fi
-}
-
-function update-bazaar() {
-    $HOME/.local/bin/bazaar quit
-    current_dir=$(pwd)
-    cd $HOME/Code/bazaar || return 1
-    git pull
-    run-arch meson setup build -Dhardcoded_content_config_path=/etc/bazaar/config.yaml --prefix=~/.local
-    run-arch ninja -C build
-    run-arch sudo ninja -C build install
-    # set path in desktop entry to absolute path
-    local desktop_file="$HOME/.local/share/applications/io.github.kolunmi.Bazaar.desktop"
-    if [ -f "$desktop_file" ]; then
-        sudo chmod 666 "$desktop_file"
-        sed -i "s|Exec=bazaar|Exec=$HOME/.local/bin/bazaar|" "$desktop_file"
-    fi
-    cd "$current_dir" || return 1
 }
 
 function export-bin() {
