@@ -93,7 +93,7 @@ typeset -U path
 path=($path
     $HOME/.local/bin
     /opt/android-sdk/platform-tools /var/opt/android-sdk/platform-tools
-    /var/lib/snapd/snap/bin
+    /var/lib/snapd/snap/bin /snap/bin
     ${CARGO_HOME:-$HOME/.cargo}/bin
     $HOME/.local/share/JetBrains/Toolbox/scripts
 )
@@ -117,6 +117,11 @@ export QT_QPA_PLATFORM=wayland
 export MOZ_ENABLE_WAYLAND=1
 
 export EDITOR='nvim'
+
+# Actions to take if we're in WSL
+if [ -f /bin/wslpath ]; then
+    export BROWSER=wslview
+fi
 
 
 # Path to your oh-my-zsh installation.
@@ -206,6 +211,10 @@ if [ -f "$HOME/Code/iDoc/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Code/iD
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/Code/iDoc/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Code/iDoc/google-cloud-sdk/completion.zsh.inc"; fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$XDG_CONFIG_HOME"/zsh/.p10k.zsh ]] || source "$XDG_CONFIG_HOME"/zsh/.p10k.zsh
