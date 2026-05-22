@@ -1,0 +1,4 @@
+[user]
+	name = LinuxSBC
+	email = anna@simmons.ovh
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHNIOm46v7flvA1bCc8HHI43zQOLhgnhjHs04P0Qjndx
