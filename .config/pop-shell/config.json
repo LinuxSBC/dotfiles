@@ -1,0 +1,44 @@
+{
+  "float": [
+    {
+      "class": "pop-shell-example",
+      "title": "pop-shell-example"
+    },
+    {
+      "class": "Gnuplot"
+    },
+    {
+      "class": "Eagle"
+    },
+    {
+      "class": "Waydroid"
+    },
+    {
+      "class": "zoom",
+      "disabled": true
+    },
+    {
+      "class": "org.kde.keditfiletype"
+    },
+    {
+      "class": "wofi"
+    },
+    {
+      "class": "nwgdmenu"
+    },
+    {
+      "class": "ulauncher"
+    },
+    {
+      "class": "1Password"
+    },
+    {
+      "class": "KiCad"
+    },
+    {
+      "class": "io.github.bugaevc.wl-clipboard"
+    }
+  ],
+  "skiptaskbarhidden": [],
+  "log_on_focus": false
+}
