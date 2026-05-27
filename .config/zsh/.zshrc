@@ -9,7 +9,6 @@ init_linuxbrew() {
     [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
     export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
     [ -z "${XDG_DATA_DIRS-}" ] || export XDG_DATA_DIRS="/home/linuxbrew/.linuxbrew/share:${XDG_DATA_DIRS-}";
-    . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
 }
 
 
@@ -151,7 +150,7 @@ bindkey '^[l' autosuggest-accept
 source $ZSH/oh-my-zsh.sh
 
 # Replace some more things with better alternatives
-alias ls='eza --icons --group-directories-first --hyperlink --git-repos --header --git --group --binary'
+alias ls='eza --icons=auto --group-directories-first --hyperlink=auto --git-repos --header --git --group --binary'
 alias la='ls -a' # all files and dirs
 alias ll='ls -l' # long format
 alias l.="ls -a | egrep '^\.'" # show only dotfiles
