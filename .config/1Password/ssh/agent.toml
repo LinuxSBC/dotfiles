@@ -40,3 +40,5 @@ vault = "Macalester"
 vault = "Personal and Work"
 [[ssh-keys]]
 vault = "Shared"
+[[ssh-keys]]
+vault = "iDoc"
