@@ -1,2 +1,1 @@
-# . "$HOME/.cargo/env"
-export ZDOTDIR="$HOME/.config/zsh"
+/var/home/annasimmons/.config/zsh/.zshenv
