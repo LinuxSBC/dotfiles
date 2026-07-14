@@ -2,6 +2,8 @@
 	path = ~/.config/git/local-config
 [includeIf "gitdir:~/Code/iDoc/"]
 	path = ~/.config/git/idoc-config
+[mailmap]
+	file = ~/.config/git/mailmap
 [credential]
 	helper = store
 [core]
