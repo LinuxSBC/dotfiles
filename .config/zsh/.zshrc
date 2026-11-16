@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+if [ -f "${ZDOTDIR:-$HOME}/.zshrc.private" ]; then . "${ZDOTDIR:-$HOME}/.zshrc.private"; fi
+
+
 # functions
 
 init_linuxbrew() {
@@ -87,10 +91,13 @@ alias fd="fd -H"
 function hyfetch() {
     cmd=$(whence -p hyfetch)
     distro=$(cat /etc/os-release | grep '^ID=' | cut -d= -f2 | tr -d '"')
+    variant_id=$(cat /etc/os-release | grep '^VARIANT_ID=' | cut -d= -f2 | tr -d '"')
     if [ "$distro" = "bluefin" ]; then
-        $cmd --distro fedora
+        $cmd --distro fedora $@
+    elif [ "$variant_id" = "silverblue" ]; then
+        $cmd --distro silverblue $@
     else
-        $cmd
+        $cmd $@
     fi
 }
 
@@ -116,6 +123,9 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 if [ -d /home/linuxbrew ]; then
     init_linuxbrew
 fi
+
+# Added by JetBrains Context CLI installer
+export PATH="$PATH:/var/home/annasimmons/.jbcontext/bin"
 
 eval "$(zoxide init zsh)"
 

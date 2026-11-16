@@ -71,7 +71,7 @@ export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 typeset -U path
 path=($path
     $HOME/.local/bin
-    /opt/android-sdk/platform-tools /var/opt/android-sdk/platform-tools
+    $HOME/.local/share/android/sdk/Sdk/platform-tools /opt/android-sdk/platform-tools /var/opt/android-sdk/platform-tools
     /var/lib/snapd/snap/bin /snap/bin
     ${CARGO_HOME:-$HOME/.cargo}/bin
     $HOME/.local/share/JetBrains/Toolbox/scripts
