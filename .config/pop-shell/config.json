@@ -37,6 +37,18 @@
     },
     {
       "class": "io.github.bugaevc.wl-clipboard"
+    },
+    {
+      "class": "art.fatdawlf.Piccolo"
+    },
+    {
+      "class": "io.github.cleomenezesjr.Serigy"
+    },
+    {
+      "class": "com.onepassword.OnePassword"
+    },
+    {
+      "class": "MainKt"
     }
   ],
   "skiptaskbarhidden": [],
