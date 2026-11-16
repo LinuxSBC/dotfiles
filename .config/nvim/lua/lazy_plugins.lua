@@ -21,8 +21,13 @@ local function wordcount()
   return word_count .. " " .. label
 end
 
+-- TODO: transition to vim.pack
+
 return {
   -- NOTE: First, some plugins that don't require any configuration
+
+  -- Shared backend for a bunch of useful modules.
+  { 'nvim-mini/mini.nvim', version = false },
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -40,6 +45,13 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     }
+  },
+
+  -- Typst live preview in a browser
+  {
+    'chomosuke/typst-preview.nvim',
+    ft = 'typst',
+    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
   },
 
   -- LSP Plugins
@@ -382,7 +394,6 @@ return {
   },
 
   -- Icons for which-key
-  { 'nvim-mini/mini.icons', version = false },
   { 'nvim-tree/nvim-web-devicons' },
 
   -- Useful plugin to show you pending keybinds.
@@ -626,11 +637,18 @@ return {
 
   -- Add firenvim for editing in browser
   { 'glacambre/firenvim', build = ":call firenvim#install(0)" },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {},
+    -- config = function()
+    -- end,
+  },
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter.config', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },

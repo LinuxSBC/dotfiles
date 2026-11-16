@@ -69,6 +69,9 @@ vim.opt.listchars = {
 -- Leave two lines at the top or bottom of the screen when scrolling
 vim.opt.scrolloff = 2
 
+-- Wrap lines by default. I use it for things like Markdown.
+vim.opt.wrap = true
+
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
@@ -80,6 +83,21 @@ require('lazy').setup(require('lazy_plugins'), {})
 vim.keymap.set('n', '<C-Tab>', ':BufferLineCycleNext<CR>', { desc = '[C-Tab] Next buffer' })
 vim.keymap.set('n', '<C-S-Tab>', ':BufferLineCyclePrev<CR>', { desc = '[C-S-Tab] Previous buffer' })
 vim.keymap.set('n', ':bq<CR>', ':BufferClose<CR>', { desc = '[q] Close buffer' })
+
+-- mini.nvim setup
+require('mini.icons').setup()
+require('mini.comment').setup()
+-- require('mini.pairs').setup()
+require('mini.basics').setup()
+require('mini.statuscolumn').setup()
+require('mini.surround').setup()
+
+
+local Rule = require('nvim-autopairs.rule')
+require("nvim-autopairs").add_rules({
+  Rule("$", "$", {"typst", "typ"}),
+  Rule("$ ", " ", {"typst", "typ"}),
+})
 
 -- Add which-key preset mappings
 require("which-key.extras").expand.buf()
